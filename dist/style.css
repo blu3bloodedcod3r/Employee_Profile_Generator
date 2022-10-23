@@ -1,0 +1,16 @@
+header {
+    color: darkblue;
+    background-color: royalblue;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: 38px;
+    margin: 10px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;    
+    margin: 10px;
+    
+}

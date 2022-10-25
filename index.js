@@ -1,62 +1,169 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
+//const { exit } = require('process');
+const Mngr = require('./lib/manager')
+const Engine = require('./lib/Engineer')
+const Intern = require('./lib/intern')
+
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-const infoPrompt = () => {
+const teamMembers = [];
+
+const managerPrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: 'What is your employee name?',
+            message: 'What is your name?',
         },
         {
             type: 'input',
             name: 'id',
-            message: 'What is your employee id?',
+            message: 'What is your id?',
         },
         {
             type: 'input',
             name: 'email',
-            message: 'What is your employee email?',
+            message: 'What is your email?',
         },
         {
-            type: 'list',
-            name: 'role',
-            message: 'Please select employee role.',
-            choices: ['Manager', 'Intern', 'Engineer']
-                if(choices === 'Manager') {
-                    inquirer.prompt = {
-                        type: 'input',
-                        name: 'officeNumber',
-                        message: 'Enter manager office number.'
-                    }
-                } else if (choices === 'Intern') {
-                    inquirer.prompt = {
-                        type: 'input',
-                        name: 'school',
-                        message: 'Enter intern Schhol name.'
-                    }
-                } else {
-                    inquirer.prompt = {
-                        type: 'input',
-                        name: 'github',
-                        message: 'Enter engineer github username.'
-                    }
-                }
+            type: 'input',
+            name: 'officeNumber',
+            message: 'What is your office number?',
         }
-        
-    ])
-}
-
-const generatHTML = answers => //generate html doc here
-
-const init = () => {
-    infoPrompt()
-        .then(answers => writeFileAsync('index.html', generateHTML(answers)))
-        .then(() => console.loge('Your template was successfully made'))
-        .catch(error => console.log(error))
+    ]).then(answers => {
+        console.log(answers);
+        const newMngr = new Mngr(answers.name, answers.id, answers.email, answers.officeNumber);
+        teamMembers.push(newMngr)
+        nowWhat();
+    }) 
 };
 
-init();
+function nowWhat() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'newTeamMember',
+            message: 'Which type of team meber would you like to add?',
+            choices: ['Intern', 'Engineer', 'Exit']
+        },
+    ]).then(answer =>  { 
+        console.log(answer);
+        if(answer.newTeamMember === 'Engineer') {
+            addEngineer()
+        } else if(answer.newTeamMember === 'Intern') {
+            addIntern()
+        } else {
+            exit()
+        }
+    })
+}
+
+const addEngineer = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is your engineer's name?",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is your engineer's id?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is your engineer's email?",
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "What is your engineer's github username?",
+        }
+        
+    ]).then(answers => {
+        console.log(answers);
+        const newEngine = new Engine(answers.name, answers.id, answers.email, answers.github);
+        teamMembers.push(newEngine)
+        nowWhat();
+    })
+    
+};
+
+const addIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is your intern's name?",
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is your intern's id?",
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is your intern's email?",
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "What school does your intern attend?",
+        }
+        
+    ]).then(answers => {
+        console.log(answers);
+        const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        teamMembers.push(newIntern)
+        nowWhat();
+    })
+    
+};
+
+function exit() {
+
+
+// const generatHTML = answers => `<!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+// </head>
+// <body>
+//     <div>
+//     ${data.map(employee) => {
+//         <div>
+//             <h5>${employee.name}</h5>
+//             <h6>${employee.officeNumber}${employee.github}${employee.school}${employee.role}</h6>
+//         </div>
+//         <ul>
+//             <li>ID: ${employee.id}</li>
+//             <li>E-mail: ${employee.email}</li>
+//             <li>Name: ${employee.name}</li>
+//         </ul>
+//     }}
+//     </div>
+    
+// </body>
+// </html>`
+
+// const init = () => {
+//     managerPrompt()
+//         .then(answers => writeFileAsync('index.html', generateHTML(answers)))
+//         .then(() => console.log('Your template was successfully made'))
+//         .catch(error => console.log(error))
+// };
+
+// init();
+
+managerPrompt();
+addEngineer();
+addIntern();
+exit();

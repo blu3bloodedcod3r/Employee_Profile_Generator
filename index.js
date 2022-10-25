@@ -4,7 +4,8 @@ const util = require('util');
 //const { exit } = require('process');
 const Mngr = require('./lib/manager')
 const Engine = require('./lib/Engineer')
-const Intern = require('./lib/intern')
+const Intern = require('./lib/intern');
+const { exit } = require('process');
 
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -56,7 +57,7 @@ function nowWhat() {
         } else if(answer.newTeamMember === 'Intern') {
             addIntern()
         } else {
-            exit()
+            addAnother()
         }
     })
 }
@@ -125,7 +126,23 @@ const addIntern = () => {
     
 };
 
-function exit() {
+const addAnother = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'leaveORstay',
+            message: 'Would you like to add another new employee?',
+            choices: ['Y', 'N']
+        },
+    ]).then(answer =>  { 
+        console.log(answer);
+        if(answer.leaveORstay === 'Y') {
+            nowWhat()
+        } else {
+           exit
+        } 
+    })
+}
 
 
 // const generatHTML = answers => `<!DOCTYPE html>
@@ -166,4 +183,4 @@ function exit() {
 managerPrompt();
 addEngineer();
 addIntern();
-exit();
+addAnother();

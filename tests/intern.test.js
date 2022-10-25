@@ -29,3 +29,5 @@ test('test if able to grab name from getofficeNumber()', () => {
 test('test if able to grab name from getRole()', () => {
     expect(internInfo.getRole()).toBe('Intern');
 });
+
+module.exports = internTest

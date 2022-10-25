@@ -9,7 +9,7 @@ const infoPrompt = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'What is your employee name',
+            message: 'What is your employee name?',
         },
         {
             type: 'input',

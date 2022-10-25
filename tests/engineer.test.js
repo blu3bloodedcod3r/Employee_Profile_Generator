@@ -29,3 +29,5 @@ test('test if able to grab name from getGithub()', () => {
 test('test if able to grab name from getRole()', () => {
     expect(engineerInfo.getRole()).toBe('Engineer');
 });
+
+module.exports = engineerTest

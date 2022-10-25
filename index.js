@@ -181,6 +181,3 @@ const addAnother = () => {
 // init();
 
 managerPrompt();
-addEngineer();
-addIntern();
-addAnother();

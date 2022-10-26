@@ -13,6 +13,10 @@ const generateHTML = answers => {
    <div class="container">
         <div class="row">
             ${cardGenerater(answers)}
+            ${cardGenerater(answers)}
+            ${cardGenerater(answers)}
+            ${cardGenerater(answers)}
+            ${cardGenerater(answers)}
         </div>
    </div>
 </body>
@@ -37,7 +41,9 @@ function cardGenerater (empArr) {
             </div>
             `
             return managerCard
-        } else if (currentEmp.getRole() === 'Engineer') {
+        }  
+        if (currentEmp.getRole() === 'Engineer') {
+            console.log(currentEmp.getRole())
                 const engineerCard = `
                 <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
                 <div class="card-body">
@@ -52,7 +58,9 @@ function cardGenerater (empArr) {
                 </div>
                 `
                 return engineerCard
-        } else if (currentEmp.getRole() === 'Intern') {
+        } 
+        if (currentEmp.getRole() === 'Intern') {
+            console.log(currentEmp.getRole())
                 const internCard = `
                 <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
                 <div class="card-body">
@@ -71,6 +79,7 @@ function cardGenerater (empArr) {
             console.log('Error')
         }
     }
+    return internCard, managerCard, engineerCard
 };
 
 

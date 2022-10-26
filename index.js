@@ -1,14 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
-//const { exit } = require('process');
-const Mngr = require('./lib/manager')
-const Engine = require('./lib/Engineer')
+const Mngr = require('./lib/manager');
+const Engine = require('./lib/Engineer');
 const Intern = require('./lib/intern');
 const { exit } = require('process');
-
-
-const writeFileAsync = util.promisify(fs.writeFile);
+const generateHTML = require('./src/templateHelper');
 
 const teamMembers = [];
 
@@ -60,7 +56,7 @@ function nowWhat() {
             addAnother()
         }
     })
-}
+};
 
 const addEngineer = () => {
     return inquirer.prompt([
@@ -135,49 +131,16 @@ const addAnother = () => {
             choices: ['Y', 'N']
         },
     ]).then(answer =>  { 
-        console.log(answer);
         if(answer.leaveORstay === 'Y') {
-            nowWhat()
-        } else {
-           exit
+            return nowWhat();
         } 
+        console.log('generateHTML')
+        fs.writeFile('index.html', generateHTML(teamMembers), () => {
+            err => console.log(err);
+        })
     })
-}
-
-
-// const generatHTML = answers => `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-// </head>
-// <body>
-//     <div>
-//     ${data.map(employee) => {
-//         <div>
-//             <h5>${employee.name}</h5>
-//             <h6>${employee.officeNumber}${employee.github}${employee.school}${employee.role}</h6>
-//         </div>
-//         <ul>
-//             <li>ID: ${employee.id}</li>
-//             <li>E-mail: ${employee.email}</li>
-//             <li>Name: ${employee.name}</li>
-//         </ul>
-//     }}
-//     </div>
-    
-// </body>
-// </html>`
-
-// const init = () => {
-//     managerPrompt()
-//         .then(answers => writeFileAsync('index.html', generateHTML(answers)))
-//         .then(() => console.log('Your template was successfully made'))
-//         .catch(error => console.log(error))
-// };
-
-// init();
+    .then(() => console.log('Your template was successfully made'))
+    .catch(error => console.log(error))
+};
 
 managerPrompt();

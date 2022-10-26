@@ -20,7 +20,8 @@ Open the terminal and node start. The manager prompt will first prompt the manag
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
 
-![screenshot of 1 card for example][<img src="" href="" width="50%">](./dist/Screenshot%202022-10-25%20223505.png)
+![screenshot of 1 card for example][<img src="../dist/Screenshot%2022-10-25$33
+606.png" href="https://bootcampspot.instructuremedia.com/embed/c600fc07-743f-4314-8bb7-39534fa7a2e2" width="50%">](./dist/Screenshot%202022-10-25%20223505.png)
 
 ## Credits
 

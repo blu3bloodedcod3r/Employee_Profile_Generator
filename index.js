@@ -134,12 +134,12 @@ const addAnother = () => {
         if(answer.leaveORstay === 'Y') {
             return nowWhat();
         } 
-        console.log('generateHTML')
-        fs.writeFile('index.html', generateHTML(teamMembers), () => {
+        console.log(teamMembers)
+        fs.writeFile('./dist/index.html', generateHTML(teamMembers), () => {
             err => console.log(err);
         })
     })
-    .then(() => console.log('Your template was successfully made'))
+    .then(() => console.log('Your info was submitted'))
     .catch(error => console.log(error))
 };
 

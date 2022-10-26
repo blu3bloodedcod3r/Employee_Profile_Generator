@@ -18,14 +18,12 @@ const generateHTML = answers => {
 </body>
 </html>`}
 
-module.exports = generateHTML
-
 function cardGenerater (empArr) {
-    console.log(empArr)
+    
     for(let i=0; i < empArr.length; i++) {
         const currentEmp = empArr[i]
+        console.log(currentEmp.getRole())
         if(currentEmp.getRole() === 'Manager'){
-            console.log('Manager')
             const managerCard = `
             <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
             <div class="card-body">
@@ -39,26 +37,43 @@ function cardGenerater (empArr) {
             </div>
             </div>
             `
+            return managerCard
         } else if (currentEmp.getRole() === 'Engineer') {
-            console.log('Engineer')
+                const engineerCard = `
+                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">${currentEmp.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.github}${currentEmp.role}</h6>
+                <ul class="card-text">
+                    <li>Name: ${currentEmp.name}</li>
+                    <li>ID: ${currentEmp.id}</li>
+                    <li>E-mail: ${currentEmp.email}</li>
+                </ul>
+                </div>
+                </div>
+                `
+                return engineerCard
         } else if (currentEmp.getRole() === 'Intern') {
-            console.log('Intern')
+                const internCard = `
+                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">${currentEmp.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.school}${currentEmp.role}</h6>
+                <ul class="card-text">
+                    <li>Name: ${currentEmp.name}</li>
+                    <li>ID: ${currentEmp.id}</li>
+                    <li>E-mail: ${currentEmp.email}</li>
+                </ul>
+                </div>
+                </div>
+                `
+                return internCard
         } else {
             console.log('Error')
         }
     }
-}
-{/* <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">${name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${officeNumber}${github}${school}${role}</h6>
-      <ul class="card-text">
-        <li>Name: ${name}</li>
-        <li>ID: ${id}</li>
-        <li>E-mail: ${email}</li>
-      </ul>
-    </div>
-    </div>
-     */}
+};
 
-     ${github}${school}
+
+
+module.exports = generateHTML

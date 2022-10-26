@@ -28,10 +28,9 @@ function cardGenerater (empArr) {
             <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
             <div class="card-body">
             <h5 class="card-title">${currentEmp.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${currentEmp.officeNumber}${currentEmp.role}</h6>
             <ul class="card-text">
-                <li>Name: ${currentEmp.name}</li>
                 <li>ID: ${currentEmp.id}</li>
+                <li>Role: ${currentEmp.role}</li>
                 <li>E-mail: ${currentEmp.email}</li>
             </ul>
             </div>

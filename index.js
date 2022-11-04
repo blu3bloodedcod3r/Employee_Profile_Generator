@@ -82,9 +82,10 @@ const addEngineer = () => {
         }
         
     ]).then(answers => {
-        console.log(answers);
+        //console.log(answers);
         const newEngine = new Engine(answers.name, answers.id, answers.email, answers.github);
         teamMembers.push(newEngine)
+        //console.log(newEngine)
         nowWhat();
     })
     
@@ -114,9 +115,10 @@ const addIntern = () => {
         }
         
     ]).then(answers => {
-        console.log(answers);
+        //console.log(answers);
         const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school);
         teamMembers.push(newIntern)
+        //console.log(teamMembers)
         nowWhat();
     })
     

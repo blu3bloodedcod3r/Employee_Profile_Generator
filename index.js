@@ -137,7 +137,7 @@ const addAnother = () => {
             return nowWhat();
         } 
         console.log(teamMembers)
-        fs.writeFile('./dist/index.html', generateHTML(teamMembers), () => {
+        fs.writeFile('./dist/index.html', JSON.stringify(teamMembers), () => {
             err => console.log(err);
         })
     })

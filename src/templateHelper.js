@@ -1,3 +1,66 @@
+function cardGenerater (empArr) {
+    
+    for(let i=0; i < empArr.length; i++) {
+        const currentEmp = empArr[i]
+
+        console.log(currentEmp.getRole())
+
+        if(currentEmp.getRole() === 'Manager'){
+            const managerCard = `
+            <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">${currentEmp.name}</h5>
+            <ul class="card-text">
+                <li>ID: ${currentEmp.id}</li>
+                <li>Role: ${currentEmp.role}</li>
+                <li>E-mail: ${currentEmp.email}</li>
+            </ul>
+            </div>
+            </div>
+            `
+            return managerCard
+        }  
+
+        if (currentEmp.getRole() === 'Engineer') {
+            console.log(currentEmp.getRole())
+                const engineerCard = `
+                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">${currentEmp.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.github}${currentEmp.role}</h6>
+                <ul class="card-text">
+                    <li>Name: ${currentEmp.name}</li>
+                    <li>ID: ${currentEmp.id}</li>
+                    <li>E-mail: ${currentEmp.email}</li>
+                </ul>
+                </div>
+                </div>
+                `
+                return engineerCard
+        } 
+        
+        if (currentEmp.getRole() === 'Intern') {
+                const internCard = `
+                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">${currentEmp.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.school}${currentEmp.role}</h6>
+                <ul class="card-text">
+                    <li>Name: ${currentEmp.name}</li>
+                    <li>ID: ${currentEmp.id}</li>
+                    <li>E-mail: ${currentEmp.email}</li>
+                </ul>
+                </div>
+                </div>
+                `
+                return internCard
+        } else {
+            console.log('Error')
+        }
+    }
+    return {internCard, managerCard, engineerCard}
+;}
+
 const generateHTML = answers => { 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -27,66 +90,6 @@ const generateHTML = answers => {
    </div>
 </body>
 </html>`}
-
-function cardGenerater (empArr) {
-    
-    for(let i=0; i < empArr.length; i++) {
-        const currentEmp = empArr[i]
-        console.log(currentEmp.getRole())
-        if(currentEmp.getRole() === 'Manager'){
-            const managerCard = `
-            <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
-            <div class="card-body">
-            <h5 class="card-title">${currentEmp.name}</h5>
-            <ul class="card-text">
-                <li>ID: ${currentEmp.id}</li>
-                <li>Role: ${currentEmp.role}</li>
-                <li>E-mail: ${currentEmp.email}</li>
-            </ul>
-            </div>
-            </div>
-            `
-            return managerCard
-        }  
-        if (currentEmp.getRole() === 'Engineer') {
-            console.log(currentEmp.getRole())
-                const engineerCard = `
-                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
-                <div class="card-body">
-                <h5 class="card-title">${currentEmp.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.github}${currentEmp.role}</h6>
-                <ul class="card-text">
-                    <li>Name: ${currentEmp.name}</li>
-                    <li>ID: ${currentEmp.id}</li>
-                    <li>E-mail: ${currentEmp.email}</li>
-                </ul>
-                </div>
-                </div>
-                `
-                return engineerCard
-        } 
-        if (currentEmp.getRole() === 'Intern') {
-                const internCard = `
-                <div class="card p-5 mb-3 bg-danger text-white" style="width: 18rem;">
-                <div class="card-body">
-                <h5 class="card-title">${currentEmp.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${currentEmp.school}${currentEmp.role}</h6>
-                <ul class="card-text">
-                    <li>Name: ${currentEmp.name}</li>
-                    <li>ID: ${currentEmp.id}</li>
-                    <li>E-mail: ${currentEmp.email}</li>
-                </ul>
-                </div>
-                </div>
-                `
-                return internCard
-        } else {
-            console.log('Error')
-        }
-    }
-    return {internCard, managerCard, engineerCard
-};}
-
 
 
 module.exports = generateHTML

@@ -137,12 +137,18 @@ const addAnother = () => {
             return nowWhat();
         } 
         console.log(teamMembers)
-        fs.writeFile('./dist/index.html', JSON.stringify(teamMembers), () => {
+
+        fs.writeFile('./dist/index.html', generateHTML(teamMembers), () => {
             err => console.log(err);
         })
     })
     .then(() => console.log('Your info was submitted'))
     .catch(error => console.log(error))
 };
+
+const init = () => {
+    return generateHTML(teamMembers)
+}
+
 
 managerPrompt();

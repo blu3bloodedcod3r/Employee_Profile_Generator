@@ -9,7 +9,7 @@ function cardGenerater(empArr) {
                 <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
                 <ul class="card-text">
                     <li>ID: ${manager.getId()}</li>
-                    <li>E-mail: ${manager.getEmail()}</li>
+                    <a href='mailto:${manager.getEmail()}' target="_blank"><li>E-mail: ${manager.getEmail()}</li></a>
                     <li>Office Number: ${manager.getOfficeNumber()}</li>
                 </ul>
                 </div>
@@ -24,8 +24,8 @@ function cardGenerater(empArr) {
                     <h6 class="card-subtitle mb-2 text-muted">${engineer.getRole()}</h6>
                      <ul class="card-text">
                          <li>ID: ${engineer.getId()}</li>
-                         <li>E-mail: ${engineer.getEmail()}</li>
-                         <li>GitHub: ${engineer.getGithub()}</li>
+                         <a href='mailto:${engineer.getEmail()}' target="_blank"><li>E-mail: ${engineer.getEmail()}</li></a>
+                         <a href='mailto:${engineer.getEmail()}' target="_blank"><li>GitHub: ${engineer.getGithub()}</li></a>
                         </ul>
                         </div>
                      </div>
@@ -39,7 +39,7 @@ function cardGenerater(empArr) {
                     <h6 class="card-subtitle mb-2 text-muted">${intern.getRole()}</h6>
                  <ul class="card-text">
                      <li>ID: ${intern.getId()}</li>
-                     <li>E-mail: ${intern.getEmail()}</li>
+                     <a href='mailto:${intern.getEmail()}' target="_blank"><li>E-mail: ${intern.getEmail()}</li></a>
                      <li>School Name: ${intern.getSchool()}</li>
                  </ul>
                  </div>

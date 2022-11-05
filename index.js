@@ -34,6 +34,7 @@ const managerPrompt = () => {
         console.log(answers);
         const newMngr = new Mngr(answers.name, answers.id, answers.email, answers.officeNumber);
         teamMembers.push(newMngr)
+        // renmae to create team
         nowWhat();
     }) 
 };
@@ -47,6 +48,7 @@ function nowWhat() {
             choices: ['Intern', 'Engineer', 'Exit']
         },
     ]).then(answer =>  { 
+        // look into switch statement
         console.log(answer);
         if(answer.newTeamMember === 'Engineer') {
             addEngineer()

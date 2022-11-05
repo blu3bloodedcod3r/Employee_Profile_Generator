@@ -18,8 +18,8 @@ When the terminal is open, be sure to 'npm i' to install any dependencies
 Open the terminal and node start. The manager prompt will first prompt the manager for their information then proceed to instruct the user if new employees information needs to be added.
 
 
-![screenshot of 1 card for example][<img src="../dist/Screenshot%2022-10-25$33
-606.png" href="https://bootcampspot.instructuremedia.com/embed/c600fc07-743f-4314-8bb7-39534fa7a2e2" width="50%">](./dist/Screenshot%202022-10-25%20223505.png)
+![screenshot of 1 card for example][<a href="https://bootcampspot.instructuremedia.com/embed/6820556c-1acd-46a4-8cf8-b8c224871499"><img src="../dist/Screenshot%2022-10-25$33
+606.png"  width="50%" style='max-width: 100%;'></a>](./dist/Screenshot%202022-10-25%20223505.png)
 
 ## Credits
 

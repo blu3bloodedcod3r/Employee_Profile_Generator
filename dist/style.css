@@ -1,7 +1,7 @@
 * {
     color: darkblue;
     background-color: royalblue;
-    
+    display: flexbox;
 }
 
 .container, .row, {

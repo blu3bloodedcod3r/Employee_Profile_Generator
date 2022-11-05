@@ -25,7 +25,7 @@ function cardGenerater(empArr) {
                      <ul class="card-text">
                          <li>ID: ${engineer.getId()}</li>
                          <a href='mailto:${engineer.getEmail()}' target="_blank"><li>E-mail: ${engineer.getEmail()}</li></a>
-                         <a href='mailto:${engineer.getEmail()}' target="_blank"><li>GitHub: ${engineer.getGithub()}</li></a>
+                         <a href='https://github.com/${engineer.getGithub()}' target="_blank"><li>GitHub: ${engineer.getGithub()}</li></a>
                         </ul>
                         </div>
                      </div>

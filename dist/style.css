@@ -1,20 +1,20 @@
 * {
     color: darkblue;
     background-color: royalblue;
+    
+}
+
+.container, .row, {
     padding: 5px;
     display: flex;
     justify-content: center;
     margin: 10px;
 }
 
-.container, .row, {
-    
-}
-
 .card-body {
     flex-wrap: wrap;    
     border: 4px;
-    
+    border-color: blue;
 }
 
 .title {
@@ -23,4 +23,9 @@
 
 .sub-title {
     font-size: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+    border: 4px;
 }
